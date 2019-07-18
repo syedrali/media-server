@@ -1,0 +1,53 @@
+{
+  "filesPaths" : [ ],
+  "comicsPaths" : [ {
+    "pathString" : "/home/hd23/ripsa/mnt/mega/Comics",
+    "userName" : [ "ripsa" ]
+  },{
+    "pathString" : "/home/hd23/ripsa/torrents/comics",
+    "userName" : [ "ripsa" ]
+  } ],
+  "booksPaths" : [ {
+    "pathString" : "/home/hd23/ripsa/mnt/mega/Books",
+    "userName" : [ "ripsa" ]
+  },{
+    "pathString" : "/home/hd23/ripsa/torrents/books",
+    "userName" : [ "ripsa" ]
+  }],
+  "users" : [ {
+    "name" : "ripsa",
+    "passwordHash" : "3d44a16c9e50c68ab0e93788a730b198b73ace9365b0f1c2c48f596b9735d5ee"
+  } ],
+  "isFilesProviderEnabled" : true,
+  "isComicsProviderEnabled" : true,
+  "isBooksProviderEnabled" : true,
+  "isUserManagementEnabled" : true,
+  "libraryPortNumber" : 11421,
+  "adminPortNumber" : 10544,
+  "comicWidth" : 160,
+  "comicHeight" : 230,
+  "comicsPaginationNumber" : 30,
+  "bookWidth" : 160,
+  "bookHeight" : 230,
+  "booksPaginationNumber" : 30,
+  "minimizeToTray" : false,
+  "minimizeOnStartup" : false,
+  "autoscanPeriod" : 15,
+  "isRemoteAdminEnabled" : false,
+  "theme" : "Default",
+  "isShrinkingCacheEnabled" : false,
+  "shrunkPageWidth" : 1536,
+  "shrunkPageHeight" : 2500,
+  "shrinkingCachePath" : "",
+  "autoScanAtLaunch" : true,
+  "reverseProxyPrefix" : "ubooquity",
+  "keystorePath" : "",
+  "keystorePassword" : "",
+  "isOpdsProviderEnabled" : true,
+  "folderExclusionPattern" : "",
+  "bypassSingleRootFolder" : false,
+  "enableFolderMetadataDisplay" : false,
+  "bookmarkUsingCookies" : false,
+  "displayTitleInsteadOfFileName" : false,
+  "keepUnreachableSharedFolders" : false
+}

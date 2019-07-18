@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Starting rclone MEGA"
+
+/sbin/start-stop-daemon -S -u $USER -d $HOME --exec /usr/bin/screen -- -dmS rclonemega /usr/local/bin/rclone mount --allow-non-empty --allow-other --cache-db-purge --vfs-cache-mode writes --timeout 1h megacache: ~/mnt/mega

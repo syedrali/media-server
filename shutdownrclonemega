@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Stopping rclone MEGA"
+
+fuser -k -9 ~/mnt/mega
+fusermount -u ~/mnt/mega
+umount -l ~/mnt/mega
