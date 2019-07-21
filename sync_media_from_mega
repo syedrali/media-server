@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Syncing Media from MEGA"
+
+nohup rclone sync mega:"Cloud Storage"/Media /home/hd23/ripsa/media &> /dev/null &
