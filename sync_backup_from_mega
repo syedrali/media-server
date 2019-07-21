@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Syncing Backup from MEGA"
+
+nohup rclone sync mega:"Cloud Storage"/Backup /home/hd23/ripsa/backup &> /dev/null &
