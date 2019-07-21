@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Syncing Backup to MEGA"
+
+screen -dmS sync_backup_to_mega rclone sync /home/hd23/ripsa/backup mega:"Cloud Storage"/Backup
+
