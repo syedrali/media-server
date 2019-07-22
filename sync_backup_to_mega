@@ -2,3 +2,4 @@
 echo "Syncing Backup to MEGA"
 
 /usr/bin/screen -dmS sync_backup_to_mega /usr/local/bin/rclone sync --timeout 1h ~/backup mega:"Cloud Storage"/Backup
+
