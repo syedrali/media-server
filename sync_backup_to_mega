@@ -2,3 +2,4 @@
 
 /usr/bin/screen -dmS sync_backup_to_mega /usr/local/bin/rclone sync ~/backup mega:"Cloud Storage"/Backup
 
+
