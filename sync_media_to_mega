@@ -1,5 +1,5 @@
 #!/bin/bash
 echo "Syncing Media to MEGA"
 
-screen -dmS sync_media_to_mega rclone sync /home/hd23/ripsa/media mega:"Cloud Storage"/Media 
+screen -dmS sync_media_to_mega rclone sync ~/media mega:"Cloud Storage"/Media
 
