@@ -1,5 +1,5 @@
 #!/bin/bash
 echo "Syncing Media to MEGA"
 
-screen -dmS sync_media_to_mega rclone sync ~/media mega:"Cloud Storage"/Media
+/usr/bin/screen -dmS sync_media_to_mega /usr/local/bin/rclone --timeout 1h sync ~/media mega:"Cloud Storage"/Media
 
