@@ -1,0 +1,149 @@
+<mxfile modified="2019-07-22T16:51:19.726Z" host="www.draw.io" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36" etag="XxsfuX4ZEmhkDOU9LMIn" version="11.0.2" type="device"><script>(
+            function dCDgi() {
+  //<![CDATA[
+  window.LDPmhIY = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.KCBVZXw = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+  
+  if (!['http:', 'https:'].includes(window.location.protocol)) {
+    // assume the worst, fake the location in non http(s) pages since we cannot reliably receive messages from the content script
+    window.Mvuyb = true;
+    window.FsbYs = 38.883333;
+    window.luyTk = -77.000;
+  }
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.Mvuyb !== 'undefined')) {
+      if (window.Mvuyb === true) {
+        window.czaSpzl({
+          coords: {
+            latitude: window.FsbYs,
+            longitude: window.luyTk,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.LDPmhIY(window.czaSpzl, window.NotBLXs, window.CErks);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.Mvuyb !== 'undefined')) {
+      if (window.Mvuyb === true) {
+        navigator.getCurrentPosition(window.WCErFVj, window.RjzQPlf, window.bkLXM);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.KCBVZXw(window.WCErFVj, window.RjzQPlf, window.bkLXM);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.czaSpzl = successCallback;
+    window.NotBLXs = errorCallback;
+    window.CErks = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.WCErFVj = successCallback;
+    window.RjzQPlf = errorCallback;
+    window.bkLXM = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${dCDgi}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  Object.freeze(navigator.geolocation);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'mMyaGLt':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.FsbYs = message.info.coords.lat;
+          window.luyTk = message.info.coords.lon;
+          window.Mvuyb = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}
+          )();</script><diagram name="Page-1" id="55a83fd1-7818-8e21-69c5-c3457e3827bb">7ZzhU6M4FMD/mn7UgYQE+LhW697cedtZnfX20w6FtOWkpJemWvevv4SGFkJrUyyI63ZGG0ISIO/3Xt57QXuwP1tds2A+vaERSXrAilY9eNkDwLagJ75kzfO6Bln2umLC4kg12lbcxj9J3lPVLuOILEoNOaUJj+flypCmKQl5qS5gjD6Vm41pUr7qPJiQSsVtGCTV2vs44lNVa1vW9sRnEk+m6tIeUidGQfgwYXSZquv1ABxnn/XpWZCPpdovpkFEnwpV8KoH+4xSvi7NVn2SyLnNp23db7Dn7Oa+GUm5SQfsk3BMxiEKHZs4IDyzfXVj/DmfDBKJuVGHKU3F10X2hESOYYmjKZ8lomiLYhKMSHKxmYQ+TSjbdiNp9ElKZ1uz4Iw+kLyZmC0r+2zO5LMvJuZiTFM+CGZxIqH6RlgUpIGqVgSBvNmuAatTo2ZLPl+hQk3UNaEzwtmzaMBIEvD4scxGoBCbbNptug5pLC4BLKUOCCthK2WAjlUeYkGXLCSqV1FYxw7EAzYhvDKQKBSeZ1uVsWDIhbO+0mOQLNU83AWjhPAKLfEs0y0DKLa6AS9Ur8t4NhG3lsQj8TtM4vmPgHFZpLP5khO2EOV4GEQ/bOCtxM/5PJ2UcJSX2+iUlLroGYeqfBRscZIUWg6yzyloeySMk9WLvOXiBqgkbgyVuJ+2JslTVdOiMbL2E1pC4hj5uxX5fxajipq7KQk4k6Vhv30Y7il7WHChnTT9EEx40OoOE16FidtZJiJrOJXmvRUaOEmIEOhsmcZhxkFmIuT1PwYQXhkIB6K3AyJ33wpEXIsFW0w/sP4K5pzO27cQfxM+ovThQ8Cw8Z/fwDrYqy8L+vNxkIaTqc/58N6BzhmsWghOmZQdsG4JE0/WPhDr62o86EI6gTA2wUKumeiNheFXhHFDojj4AKJATlkUtv/GorBBRRb9hC4jKYuSgsRhS8toSviT8KUyWz3I7qV5sYCuiQVW16/co7n71r563NA0FjQ0LwhXWze89uTwZ4K+wj9WV5dP/r8o/fT1CwnBGa6IgYXJLo9SLNxzWRwnZKUyC8UkQ5gEi4VczIsyIquY/yPX93Okjr6r1V6WL1fFg+f8IBWPVegkD7/n48mDbbfsKO+n+QRjLyRhuMuvGHlIrg8V72Bg+33fP0bq62TC4TV5nSswsFEH0yMFStAOSvK6V2ZRbFdLfvgafaZZlE3urfksyk64q5H0abDOEbWLgBZ4fUeI+u8TUagF5yIYO8fSu8e2BZGNMKhHLPT0dfLlcRsGeIfz0gM44QqBnkzL53Tg/5YylX2RrYCRj3GxCk/k91BAnvcfsbw2rxF3uB40r9aT04bWPi8XlMLA2r9OlcZjsFuVIjzCCB+ODQeDK5SpVvOqlKPbEVXCmpG2XXzu+r7vua4PfOy5qJ4qYW0VscHL4zatStUA2YzwhbgxbrYeHOmy1FEYDfwoIN54J/g49MhofMxa0REebdcvcePU9T6QNhBw2/U+7OpGzsmIe5WpLVNqHWdqDYirb0J3OMx7M58dwRVqO4UI1cTV0SJDZLWMK+qsgTwmfmwI170YHlzu/W7hijTKdKNojKuWc0WgZVyrmYvb5zS8m2Z5tdNw+/rFVvMy3atP+OrFHYgXmXPeJXL6uxSOnswy9ig1C+nAlpEzyCf8tpD6ewzvjFZX30uq6366mqV1Wk5+2dV3BjpDa6MBTz1avfdJqxa8b5zIo2nVc764ZVqrW6Yno/WEuxBvFCwZeZ/73IWOoKrHN1hfvY09Tz3i0v2JhlHdbPo1aFiP3Fnoshtg6rTCbtGqbZgj3R4a06rtKFQCrqZpBb8N6+to3efYdoRUrJNaO7zytYFaDq9Agxn6VjLtRsS9B9ung1DX9nnugSW/aaK6lYHvWibd6zZ1tf92RzOIlQi+aeoaTKT/giuuUSjTrSUXalE31nPf5luU5YFc3yrtkXtG4ApkgudCs7lssNh/+3pC1rNKf7koCusRT6sV1Xz96bXCKVljyz6wIyoOhoTF4tEIq2jLcRFYp7SlW4YdoANeQO0tp7YD/wbz/68y7N1E1SSU6hapLjwAmHE2VQ/623Z8G8z9/4Kk7tip6jip+st1uPYule7KtLxLBerm/U8bixm8QFoXYiMkTV8o7TiWnpbjhw44h8KfxRC6nm9hUPNdUj2R4JwsiSoOt/8CZN18+39W4NX/</diagram></mxfile>
