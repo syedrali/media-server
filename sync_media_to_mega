@@ -1,3 +1,4 @@
 #!/bin/bash
 
 /usr/bin/screen -dmS sync_media_to_mega /usr/local/bin/rclone sync ~/media mega:"Cloud Storage"/Media
+
